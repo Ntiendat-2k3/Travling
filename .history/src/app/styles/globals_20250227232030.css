@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  /* Custom scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 5px;
+    transition: width 0.3s ease; /* Thêm hiệu ứng mượt mà khi thay đổi chiều rộng */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #F472B6; /* Màu hồng (Pink) */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng mượt mà cho màu khi hover */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #D61E7A; /* Màu hồng đậm khi hover */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  /* Custom scrollbar for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #F472B6 #f1f1f1; /* thumb color và track color */
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth; /* Chuyển động mượt mà khi cuộn */
+  }
+

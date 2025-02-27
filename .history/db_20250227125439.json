@@ -1,0 +1,28 @@
+{
+  "tours": [
+    {
+      "id": 1,
+      "name": "Tour Hà Nội 3 Ngày 2 Đêm",
+      "location": "Hà Nội",
+      "description": "Khám phá vẻ đẹp thủ đô với tour du lịch 3 ngày 2 đêm.",
+      "price": "3,500,000 VND",
+      "image": "/images/tour1.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Tour Sài Gòn 4 Ngày 3 Đêm",
+      "location": "Sài Gòn",
+      "description": "Khám phá thành phố Sài Gòn sôi động với tour 4 ngày 3 đêm.",
+      "price": "4,200,000 VND",
+      "image": "/images/tour2.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Tour Đà Nẵng 3 Ngày 2 Đêm",
+      "location": "Đà Nẵng",
+      "description": "Khám phá thành phố biển Đà Nẵng xinh đẹp trong 3 ngày.",
+      "price": "3,800,000 VND",
+      "image": "/images/tour3.jpeg"
+    }
+  ]
+}
