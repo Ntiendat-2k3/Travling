@@ -46,10 +46,8 @@ const CardTour = ({ tour }) => {
         </div>
 
         {/* Nút đặt tour */}
-        <button className="w-full flex items-center justify-between">
-          <span>
-            <FaEye className="text-2xl text-violet-600" />
-          </span>
+        <button className="w-full flex justify-end">
+          <span></span>
           <p className="w-[120px] py-2 rounded-md border border-transparent bg-green-500 text-white hover:border-green-500 hover:text-green-500 hover:bg-transparent transition duration-300">
             Đặt ngay
           </p>

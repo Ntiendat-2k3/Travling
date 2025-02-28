@@ -1,6 +1,5 @@
-import { FaSpinner } from "react-icons/fa";
+import Paginate from "./Paginate";
 import CardTour from "../CardTour";
-import Paginate from "@/app/utils/Paginate";
 
 const SectionBestSellingTour = ({ tours, loading, error }) => {
   if (loading) {
@@ -36,7 +35,7 @@ const SectionBestSellingTour = ({ tours, loading, error }) => {
 
       <Paginate
         data={tours}
-        itemsPerPage={3} // Hiển thị 6 tour mỗi trang
+        itemsPerPage={6} // Hiển thị 6 tour mỗi trang
         renderItem={renderTourCard} // Hàm render để render mỗi CardTour
       />
     </div>
