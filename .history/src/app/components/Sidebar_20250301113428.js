@@ -36,10 +36,10 @@ const Sidebar = ({ setFilters }) => {
       type: selectedType,
     });
 
-    // // Sau khi lọc xong, reset lại các trạng thái lọc
-    // setSelectedLocation([]); // Reset địa điểm
-    // setPriceRange({ min: "", max: "" }); // Reset giá
-    // setSelectedType([]); // Reset loại tour
+    // Sau khi lọc xong, reset lại các trạng thái lọc
+    setSelectedLocation([]); // Reset địa điểm
+    setPriceRange({ min: "", max: "" }); // Reset giá
+    setSelectedType([]); // Reset loại tour
   };
 
   return (

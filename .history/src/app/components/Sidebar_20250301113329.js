@@ -36,14 +36,14 @@ const Sidebar = ({ setFilters }) => {
       type: selectedType,
     });
 
-    // // Sau khi lọc xong, reset lại các trạng thái lọc
-    // setSelectedLocation([]); // Reset địa điểm
-    // setPriceRange({ min: "", max: "" }); // Reset giá
-    // setSelectedType([]); // Reset loại tour
+    // Sau khi lọc xong, reset lại các trạng thái lọc
+    setSelectedLocation([]); // Reset địa điểm
+    setPriceRange({ min: "", max: "" }); // Reset giá
+    setSelectedType([]); // Reset loại tour
   };
 
   return (
-    <div className="mr-5 w-full h-[700px] sm:w-64 bg-gradient-to-tr from-[#cce9f5] to-[#c6e7d8] p-6 rounded-lg shadow-md">
+    <div className="mr-5 w-full h-[650px] sm:w-64 bg-gradient-to-tr from-[#cce9f5] to-[#c6e7d8] p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-semibold mb-4">Lọc Tour</h3>
 
       {/* Lọc theo địa điểm */}

@@ -7,39 +7,28 @@ import {
 } from "../utils/filter";
 
 const Sidebar = ({ setFilters }) => {
-  // Các state để lưu giá trị lọc
   const [selectedLocation, setSelectedLocation] = useState([]);
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
-  const [selectedType, setSelectedType] = useState([]);
+  const [selectedType, setSelectedType] = useState([]); // Thêm state cho loại tour
 
-  // Hàm xử lý thay đổi địa điểm
   const handleLocationChange = (location) => {
-    setSelectedLocation(location);
+    setSelectedLocation(location); // Đặt lại location sau mỗi thay đổi
   };
 
-  // Hàm xử lý thay đổi giá
   const handlePriceChange = (name, value) => {
     setPriceRange((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Hàm xử lý thay đổi loại tour
   const handleTypeChange = (type) => {
-    setSelectedType(type);
+    setSelectedType(type); // Đặt lại loại tour đã chọn
   };
 
-  // Hàm xử lý khi bấm nút lọc
   const handleFilter = () => {
-    // Gửi giá trị lọc cho `setFilters`
     setFilters({
       location: selectedLocation,
       price: priceRange,
       type: selectedType,
     });
-
-    // // Sau khi lọc xong, reset lại các trạng thái lọc
-    // setSelectedLocation([]); // Reset địa điểm
-    // setPriceRange({ min: "", max: "" }); // Reset giá
-    // setSelectedType([]); // Reset loại tour
   };
 
   return (

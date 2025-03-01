@@ -18,7 +18,7 @@
       "price": "4,200,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": false
     },
     {
       "id": 3,
@@ -36,7 +36,7 @@
       "location": "Paris",
       "description": "Khám phá Paris và những thành phố nổi tiếng khác tại Pháp.",
       "price": "10,000,000 VND",
-      "image": "/assets/images/tour1.jpeg",
+      "image": "/assets/images/tour4.jpeg",
       "type": "international",
       "isBestSelling": true
     },
@@ -46,7 +46,7 @@
       "location": "Tokyo",
       "description": "Khám phá Tokyo và các thành phố nổi tiếng khác ở Nhật Bản.",
       "price": "12,000,000 VND",
-      "image": "/assets/images/tour1.jpeg",
+      "image": "/assets/images/tour5.jpeg",
       "type": "international",
       "isBestSelling": false
     },
@@ -56,7 +56,7 @@
       "location": "Bali",
       "description": "Khám phá vẻ đẹp của Bali, hòn đảo thiên đường của Indonesia.",
       "price": "8,500,000 VND",
-      "image": "/assets/images/tour2.jpeg",
+      "image": "/assets/images/tour6.jpeg",
       "type": "international",
       "isBestSelling": true
     },
@@ -66,7 +66,7 @@
       "location": "Côn Đảo",
       "description": "Khám phá lịch sử và thiên nhiên của Côn Đảo.",
       "price": "5,000,000 VND",
-      "image": "/assets/images/tour3.jpeg",
+      "image": "/assets/images/tour7.jpeg",
       "type": "domestic",
       "isBestSelling": true
     },
@@ -76,7 +76,7 @@
       "location": "New York",
       "description": "Khám phá các thành phố lớn của Mỹ, từ New York đến Los Angeles.",
       "price": "20,000,000 VND",
-      "image": "/assets/images/tour2.jpeg",
+      "image": "/assets/images/tour8.jpeg",
       "type": "international",
       "isBestSelling": false
     },
@@ -86,7 +86,7 @@
       "location": "Hong Kong",
       "description": "Khám phá Hong Kong, một trong những thành phố sôi động nhất châu Á.",
       "price": "6,000,000 VND",
-      "image": "/assets/images/tour1.jpeg",
+      "image": "/assets/images/tour9.jpeg",
       "type": "international",
       "isBestSelling": true
     },
@@ -96,9 +96,9 @@
       "location": "Hạ Long",
       "description": "Khám phá Vịnh Hạ Long với các tour thuyền trên vịnh.",
       "price": "2,500,000 VND",
-      "image": "/assets/images/tour2.jpeg",
+      "image": "/assets/images/tour10.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": false
     }
   ]
 }

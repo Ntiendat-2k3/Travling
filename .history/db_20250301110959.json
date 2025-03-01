@@ -18,7 +18,7 @@
       "price": "4,200,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": false
     },
     {
       "id": 3,
@@ -36,7 +36,7 @@
       "location": "Paris",
       "description": "Khám phá Paris và những thành phố nổi tiếng khác tại Pháp.",
       "price": "10,000,000 VND",
-      "image": "/assets/images/tour1.jpeg",
+      "image": "/assets/images/tour4.jpeg",
       "type": "international",
       "isBestSelling": true
     },
@@ -76,7 +76,7 @@
       "location": "New York",
       "description": "Khám phá các thành phố lớn của Mỹ, từ New York đến Los Angeles.",
       "price": "20,000,000 VND",
-      "image": "/assets/images/tour2.jpeg",
+      "image": "/assets/images/tour4.jpeg",
       "type": "international",
       "isBestSelling": false
     },
@@ -98,7 +98,7 @@
       "price": "2,500,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": false
     }
   ]
 }

@@ -18,7 +18,7 @@
       "price": "4,200,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": false
     },
     {
       "id": 3,
@@ -98,7 +98,7 @@
       "price": "2,500,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": false
     }
   ]
 }
