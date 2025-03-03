@@ -22,10 +22,11 @@ const NotFound = () => {
         </div>
 
         {/* Link back to home page */}
-        <Link href="/">
-          <a className="py-2 px-6 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">
-            Go Back to Home
-          </a>
+        <Link
+          href="/"
+          className="py-2 px-6 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 cursor-pointer"
+        >
+          Go Back to Home
         </Link>
       </div>
     </div>

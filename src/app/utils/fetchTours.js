@@ -1,8 +1,7 @@
+import { API } from "../config/config";
+
 export const fetchTours = async () => {
-  // const res = await fetch(
-  //   "https://67c13ca761d8935867e24598.mockapi.io/tourist"
-  // );
-  const res = await fetch("http://localhost:5555/tours");
+  const res = await fetch(`${API}`);
   if (!res.ok) {
     throw new Error("Failed to fetch tours");
   }
