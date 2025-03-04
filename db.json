@@ -5,10 +5,39 @@
       "name": "Tour Hà Nội 3 Ngày 2 Đêm",
       "location": "Hà Nội",
       "description": "Khám phá vẻ đẹp thủ đô với tour du lịch 3 ngày 2 đêm.",
-      "price": "3,500,000 VND",
+      "price": "3,750,000 VND",
       "image": "/assets/images/tour1.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        },
+        "tourPackageStyle": {
+          "listStyle": "list-[🌸]"
+        },
+        "include": "",
+        "childrenPolicy": [
+          "Trẻ em từ 09 tuổi trở lên mua 100% giá tour",
+          "Trẻ em từ 04 - 09 tuổi mua 75% giá tour, ngủ chung phòng với  bố mẹ",
+          "Trẻ em dưới 4 tuổi miễn phí, nếu trẻ em đi kèm nhiều hơn thì từ em thứ 02 trở lên phải mua 1/2 vé",
+          "Trẻ con miễn phí bố mẹ phải tự lo vé nếu bé cao hơn mức quy định của các khu vui chơi, nhà hàng, khách sạn,..."
+        ],
+        "childrenPolicyStyle": {
+          "listStyle": "list-inside list-decimal pl-4"
+        },
+        "note": "Vui lòng mang theo giấy tờ tùy thân khi tham gia tour (người lớn: CMND, Trẻ em: khai sinh)."
+      }
     },
     {
       "id": 2,
@@ -18,7 +47,22 @@
       "price": "4,200,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 3,
@@ -28,7 +72,22 @@
       "price": "3,800,000 VND",
       "image": "/assets/images/tour3.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 4,
@@ -38,7 +97,22 @@
       "price": "10,000,000 VND",
       "image": "/assets/images/tour1.jpeg",
       "type": "international",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 5,
@@ -48,7 +122,22 @@
       "price": "12,000,000 VND",
       "image": "/assets/images/tour1.jpeg",
       "type": "international",
-      "isBestSelling": false
+      "isBestSelling": false,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 6,
@@ -58,7 +147,22 @@
       "price": "8,500,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "international",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 7,
@@ -68,7 +172,22 @@
       "price": "5,000,000 VND",
       "image": "/assets/images/tour3.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 8,
@@ -78,7 +197,22 @@
       "price": "20,000,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "international",
-      "isBestSelling": false
+      "isBestSelling": false,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 9,
@@ -88,7 +222,22 @@
       "price": "6,000,000 VND",
       "image": "/assets/images/tour1.jpeg",
       "type": "international",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     },
     {
       "id": 10,
@@ -98,7 +247,22 @@
       "price": "2,500,000 VND",
       "image": "/assets/images/tour2.jpeg",
       "type": "domestic",
-      "isBestSelling": true
+      "isBestSelling": true,
+      "main": {
+        "imgReview": [
+          "/assets/images/tour1.jpeg",
+          "/assets/images/tour2.jpeg",
+          "/assets/images/tour3.jpeg"
+        ],
+        "title": "Du lịch Hà Nội",
+        "time": "3 ngày 2 đêm",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "tourPackage": {
+          "KHÁCH SẠN 02 SAO": 3750000,
+          "KHÁCH SẠN 03 SAO": 4250000,
+          "KHÁCH SẠN 04 SAO": 5550000
+        }
+      }
     }
   ]
 }

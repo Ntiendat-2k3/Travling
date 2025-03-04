@@ -1,12 +1,19 @@
+import { useState } from "react";
+import TourDetailModal from "./TourDetailModal";
 import Image from "next/image";
 import {
+  FaCalendarAlt,
   FaEye,
   FaMapMarkerAlt,
-  FaCalendarAlt,
   FaMoneyBillAlt,
 } from "react-icons/fa";
 
 const CardTour = ({ tour }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="max-w-sm h-[454px] rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-green-300 to-teal-400 transform transition-all duration-300 hover:shadow-xl cursor-pointer">
       {/* Hình ảnh Tour */}
@@ -46,7 +53,10 @@ const CardTour = ({ tour }) => {
         </div>
 
         {/* Nút đặt tour */}
-        <button className="w-full flex items-center justify-between">
+        <button
+          onClick={openModal}
+          className="w-full flex items-center justify-between"
+        >
           <span>
             <FaEye className="text-2xl text-violet-600" />
           </span>
@@ -55,6 +65,9 @@ const CardTour = ({ tour }) => {
           </p>
         </button>
       </div>
+
+      {/* Hiển thị Modal khi isModalOpen là true */}
+      {isModalOpen && <TourDetailModal tour={tour} onClose={closeModal} />}
     </div>
   );
 };
