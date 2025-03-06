@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TourDetailModal from "./TourDetailModal";
+import TourBookingModal from "./TourBookingModal";
 import Image from "next/image";
 import {
   FaCalendarAlt,
@@ -10,9 +11,13 @@ import {
 
 const CardTour = ({ tour }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false); // State for booking modal
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const openBookingModal = () => setIsBookingModalOpen(true);
+  const closeBookingModal = () => setIsBookingModalOpen(false);
 
   return (
     <div className="max-w-sm h-[454px] rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-green-300 to-teal-400 transform transition-all duration-300 hover:shadow-xl cursor-pointer">
@@ -53,21 +58,26 @@ const CardTour = ({ tour }) => {
         </div>
 
         {/* Nút đặt tour */}
-        <button
-          onClick={openModal}
-          className="w-full flex items-center justify-between"
-        >
-          <span>
+        <div className="w-full flex items-center justify-between">
+          <button onClick={openModal}>
             <FaEye className="text-2xl text-violet-600" />
-          </span>
-          <p className="w-[120px] py-2 rounded-md border border-transparent bg-green-500 text-white hover:border-green-500 hover:text-green-500 hover:bg-transparent transition duration-300">
+          </button>
+          <button
+            onClick={openBookingModal}
+            className="w-[120px] py-2 rounded-md border border-transparent bg-green-500 text-white hover:border-green-500 hover:text-green-500 hover:bg-transparent transition duration-300"
+          >
             Đặt ngay
-          </p>
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Hiển thị Modal khi isModalOpen là true */}
       {isModalOpen && <TourDetailModal tour={tour} onClose={closeModal} />}
+
+      {/* Hiển thị Modal đặt tour khi isBookingModalOpen là true */}
+      {isBookingModalOpen && (
+        <TourBookingModal tour={tour} onClose={closeBookingModal} />
+      )}
     </div>
   );
 };

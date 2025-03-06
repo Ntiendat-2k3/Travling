@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+input, textarea {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
 
 html {
   scroll-behavior: smooth;

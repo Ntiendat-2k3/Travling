@@ -13,6 +13,8 @@ export default {
         dark2d: "#2d2a4f",
         dark3c: "#3c3b70",
         gray80: "#808080",
+        gray9: "#111827",
+        red7: "#b91c1c",
       },
       container: {
         center: true, // Đảm bảo container được căn giữa
