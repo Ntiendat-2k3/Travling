@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import CardTour from "./CardTour";
 import { fetchTours } from "../utils/fetchTours";
-import CardTourSkeleton from "../utils/loading/loadingSkeleton";
+import CardTourSkeleton from "../utils/loading/LoadingSkeleton";
 
 export default function ToursPage({ type, title, subtitle }) {
   const [tours, setTours] = useState([]);
