@@ -21,7 +21,7 @@ const Navbar = () => {
             >
               <div className="flex items-center cursor-pointer">
                 <Link
-                  href={item.path}
+                  href={`${item.path}`}
                   className="text-gray80 text-xl hover:text-dark2d transition duration-300 flex items-center"
                 >
                   {item.icon}

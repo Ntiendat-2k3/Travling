@@ -1,20 +1,17 @@
 import React from "react";
 import Header from "../components/Header";
-import ToursPage from "../components/ToursPage";
 import Footer from "../components/Footer";
 
-export default function TourTrongNuoc() {
+const ToursLayout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <div className=" bg-gradient-to-l from-[#cce9f5] to-[#c6e7d8] py-5">
         <Header />
       </div>
-      <ToursPage
-        type="domestic"
-        title="Tour Trong Nước"
-        subtitle="Khám phá những tour du lịch nội địa hấp dẫn"
-      />
+      {children} {/* Hiển thị nội dung trang con */}
       <Footer />
     </div>
   );
-}
+};
+
+export default ToursLayout;

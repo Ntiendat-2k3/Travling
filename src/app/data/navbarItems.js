@@ -7,10 +7,14 @@ import {
 } from "react-icons/fa";
 
 export const navbarItems = [
-  { name: "Trang chủ", path: "/", icon: <FaHome className="w-5 h-5 mr-2" /> },
+  {
+    name: "Trang chủ",
+    path: "/",
+    icon: <FaHome className="w-5 h-5 mr-2" />,
+  },
   {
     name: "Tour trong nước",
-    path: "/tour-trong-nuoc",
+    path: "/tours/domestic",
     icon: <FaGlobe className="w-5 h-5 mr-2" />,
     dropdown: [
       { name: "Tour Hà Nội", path: "/tour-ha-noi" },
@@ -20,7 +24,7 @@ export const navbarItems = [
   },
   {
     name: "Tour nước ngoài",
-    path: "/tour-nuoc-ngoai",
+    path: "/tours/international",
     icon: <FaGlobe className="w-5 h-5 mr-2" />,
   },
   {

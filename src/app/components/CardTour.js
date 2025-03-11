@@ -26,9 +26,11 @@ const CardTour = ({ tour }) => {
         <Image
           src={tour.image}
           alt={tour.name}
-          layout="fill"
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
           className="rounded-t-xl"
+          width={500}
+          height={300}
+          priority
         />
       </div>
 

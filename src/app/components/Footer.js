@@ -68,7 +68,12 @@ const Footer = () => {
               alt="Logo"
               width={200}
               height={200}
-            ></Image>
+              style={{
+                objectFit: "cover",
+                width: "auto", // Đảm bảo tỷ lệ của ảnh không bị méo
+                height: "auto", // Đảm bảo tỷ lệ của ảnh không bị méo
+              }}
+            />
             <p className="mt-4 text-sm">
               &copy; 2025 <span className="text-blue-500">Travling!</span>. All
               rights reserved.
