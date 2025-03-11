@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { fetchTours } from "@/app/utils/fetchTours";
 import CardTour from "@/app/components/CardTour";
 import CardTourSkeleton from "@/app/utils/loading/LoadingSkeleton";
+import Paginate from "@/app/utils/Paginate";
 
 const TourPage = () => {
   const { type } = useParams();
@@ -39,16 +40,20 @@ const TourPage = () => {
 
   const pageTitle = type === "domestic" ? "Tour Trong Nước" : "Tour Nước Ngoài";
 
+  const renderTourCard = (tour) => {
+    return <CardTour key={tour.id} tour={tour} />;
+  };
+
   return (
     <>
       <div className="py-6 text-center">
-        <h1 className="text-2xl font-bold text-gray-700">{pageTitle}</h1>
+        <h1 className="text-3xl font-bold text-gray-700 mb-1">{pageTitle}</h1>
         {type === "domestic" ? (
-          <p className="text-sm text-gray-500">
+          <p className="text-md text-gray-500">
             Khám phá những tour du lịch nội địa hấp dẫn
           </p>
         ) : (
-          <p className="text-sm text-gray-500">
+          <p className="text-md text-gray-500">
             Khám phá những tour du lịch quốc tế đặc sắc
           </p>
         )}
@@ -62,10 +67,12 @@ const TourPage = () => {
             <CardTourSkeleton />
           </div>
         ) : tours.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 max-w-6xl mx-auto">
-            {tours.map((tour) => (
-              <CardTour key={tour.id} tour={tour} />
-            ))}
+          <div className="px-4 pb-8 max-w-6xl mx-auto">
+            <Paginate
+              data={tours} // Dữ liệu tour
+              itemsPerPage={3} // Số lượng tour trên mỗi trang
+              renderItem={renderTourCard} // Render card cho mỗi item
+            />
           </div>
         ) : (
           <p className="text-center mt-6">Hiện không có tour phù hợp</p>
