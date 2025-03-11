@@ -6,19 +6,27 @@ import CardTour from "@/app/components/CardTour";
 import CardTourSkeleton from "@/app/utils/loading/LoadingSkeleton";
 
 const TourPage = () => {
-  const { type } = useParams(); // Lấy tham số 'type' từ URL
+  const { type } = useParams();
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!type) return; // Tránh render trước khi 'type' có giá trị
+    if (!type) return;
 
     const getTours = async () => {
+      // caching
+      const cachedTours = localStorage.getItem(`tours_${type}`);
+      if (cachedTours) {
+        setTours(JSON.parse(cachedTours)); // Sử dụng dữ liệu từ localStorage
+        setLoading(false);
+        return;
+      }
+
       try {
         const data = await fetchTours();
-        // Lọc tour theo 'type'
         const filteredTours = data?.filter((tour) => tour.type === type);
         setTours(filteredTours || []);
+        localStorage.setItem(`tours_${type}`, JSON.stringify(filteredTours)); // Lưu vào localStorage
       } catch (error) {
         console.error("Error fetching tours:", error);
       } finally {
