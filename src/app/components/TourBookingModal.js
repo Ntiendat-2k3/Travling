@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import { validationSchema } from "../utils/validate/validationSchema";
 import InputField from "./input/InputField";
 import { db, addDoc, collection } from "../utils/firebase";
-import { useNotyf } from "../utils/notyf";
+import useNotyf from "../utils/notyf";
 
 const TourBookingModal = ({ tour, onClose }) => {
   const [successMessage, setSuccessMessage] = useState("");

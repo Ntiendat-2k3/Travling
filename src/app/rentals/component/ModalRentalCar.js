@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "./style.css";
 import InputField from "@/app/components/input/InputField";
 import { FaRegTimesCircle } from "react-icons/fa";
+import { db, collection, addDoc } from "@/app/utils/firebase";
+import "./style.css";
+import useNotyf from "@/app/utils/notyf";
 
 const ModalRentalCar = ({
   isOpen,
@@ -17,6 +19,7 @@ const ModalRentalCar = ({
     phone: "",
     message: "",
   });
+  const { showSuccess, showError } = useNotyf();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,10 +29,30 @@ const ModalRentalCar = ({
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    closeModal(); // Đóng modal sau khi submit
+
+    try {
+      // Push dữ liệu vào Firestore
+      await addDoc(collection(db, "rentalCar"), {
+        ...formData,
+        carType: selectedCarType,
+        route: selectedRoute,
+        createdAt: new Date(),
+      });
+
+      showSuccess("Đặt xe thành công!");
+      closeModal();
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      }); // Reset form
+    } catch (error) {
+      showError("Đã có lỗi xảy ra. Vui lòng thử lại.");
+      console.error("Error adding document: ", error);
+    }
   };
 
   return (
