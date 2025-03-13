@@ -11,7 +11,7 @@ import {
 
 const CardTour = ({ tour }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false); // State for booking modal
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);

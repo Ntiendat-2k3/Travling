@@ -29,7 +29,7 @@ export const navbarItems = [
   },
   {
     name: "Thuê xe du lịch",
-    path: "/thue-xe-du-lich",
+    path: "/rentals",
     icon: <FaCar className="w-5 h-5 mr-2" />,
   },
   {

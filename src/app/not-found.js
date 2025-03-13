@@ -3,13 +3,15 @@ import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <div className="h-screen flex items-center justify-center relative">
-      {/* Ảnh nền với hiệu ứng mờ */}
+    <div className="bg-gray-900 h-screen flex items-center justify-center relative">
+      {/* Ảnh nền với hiệu ứng mờ, được căn ở góc dưới bên phải */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute bottom-0 right-0 bg-cover"
         style={{
           backgroundImage: "url(/assets/images/bg.jpg)",
-          filter: "blur(8px)",
+          backgroundPosition: "right bottom",
+          width: "400px",
+          height: "400px",
         }}
       ></div>
       <div className="text-center max-w-lg relative z-10 text-white">
