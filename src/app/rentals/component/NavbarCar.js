@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 
-const NavbarCar = ({ onSelect }) => {
+const NavbarCar = memo(({ onSelect }) => {
   const carTypes = ["4-chỗ", "7-chỗ", "9-chỗ", "16-chỗ", "29-chỗ"];
 
   return (
@@ -24,6 +24,8 @@ const NavbarCar = ({ onSelect }) => {
       </div>
     </div>
   );
-};
+});
+
+NavbarCar.displayName = "NavbarCar";
 
 export default NavbarCar;

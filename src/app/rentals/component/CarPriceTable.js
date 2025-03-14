@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import ModalRentalCar from "./ModalRentalCar";
 
-const CarPriceTable = ({ data }) => {
+const CarPriceTable = memo(({ data }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedRoute, setSelectedRoute] = useState("");
   const [selectedCarType, setSelectedCarType] = useState("");
@@ -64,6 +64,8 @@ const CarPriceTable = ({ data }) => {
       />
     </>
   );
-};
+});
+
+CarPriceTable.displayName = "CarPriceTable";
 
 export default CarPriceTable;

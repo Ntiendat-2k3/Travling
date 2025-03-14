@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchTours } from "@/app/utils/fetchTours";
 import CardTour from "@/app/components/CardTour";
-import CardTourSkeleton from "@/app/utils/loading/LoadingSkeleton";
+import CardTourSkeleton from "@/app/utils/loading/CardTourSkeleton";
 import Paginate from "@/app/utils/Paginate";
 import SearchFilter from "./SearchFilter";
 
@@ -78,6 +78,7 @@ const TourPage = () => {
           setSearchQuery={setSearchQuery}
           tours={tours} // Truyền danh sách các tour để tìm kiếm
           setSelectedTour={setSelectedTour}
+          setToursToShow={setToursToShow} // Truyền setToursToShow vào
           onEnterPress={handleEnterPress} // Truyền function vào để xử lý nhấn Enter
         />
         {loading ? (

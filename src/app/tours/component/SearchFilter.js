@@ -5,6 +5,7 @@ const SearchFilter = ({
   tours,
   setSelectedTour,
   onEnterPress,
+  setToursToShow,
 }) => {
   const [query, setQuery] = useState("");
   const [filteredTours, setFilteredTours] = useState([]);
@@ -23,13 +24,15 @@ const SearchFilter = ({
   }, [query, tours]);
 
   const handleSearchChange = (event) => {
-    setQuery(event.target.value);
-    setSearchQuery(event.target.value); // Cập nhật từ khóa tìm kiếm
+    const value = event.target.value;
+    setQuery(value);
+    setSearchQuery(value); // Cập nhật từ khóa tìm kiếm
   };
 
   const handleSelectTour = (tour) => {
-    setQuery(tour.name);
-    setSelectedTour(tour); // Chọn tour khi click vào một gợi ý
+    setQuery(tour.name); // Cập nhật từ khóa tìm kiếm
+    setSelectedTour(tour); // Chọn tour đã click
+    setToursToShow([tour]); // Cập nhật chỉ hiển thị tour đã chọn
     setFilteredTours([]); // Đóng thanh gợi ý sau khi chọn tour
   };
 
