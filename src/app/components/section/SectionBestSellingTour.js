@@ -36,7 +36,7 @@ const SectionBestSellingTour = ({ tours, loading, error }) => {
 
       <Paginate
         data={tours}
-        itemsPerPage={3} // Hiển thị 6 tour mỗi trang
+        itemsPerPage={9}
         renderItem={renderTourCard} // Hàm render để render mỗi CardTour
       />
     </div>

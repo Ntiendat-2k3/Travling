@@ -5,11 +5,15 @@ import { fetchTours } from "@/app/utils/fetchTours";
 import CardTour from "@/app/components/CardTour";
 import CardTourSkeleton from "@/app/utils/loading/LoadingSkeleton";
 import Paginate from "@/app/utils/Paginate";
+import SearchFilter from "./SearchFilter";
 
 const TourPage = () => {
   const { type } = useParams();
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState(""); // State để lưu từ khóa tìm kiếm
+  const [selectedTour, setSelectedTour] = useState(null); // State để lưu tour đã chọn
+  const [toursToShow, setToursToShow] = useState([]); // State để lưu các TourCard sẽ hiển thị
 
   useEffect(() => {
     if (!type) return;
@@ -20,6 +24,7 @@ const TourPage = () => {
       if (cachedTours) {
         setTours(JSON.parse(cachedTours)); // Sử dụng dữ liệu từ localStorage
         setLoading(false);
+        setToursToShow(JSON.parse(cachedTours)); // Hiển thị tất cả tour ban đầu
         return;
       }
 
@@ -28,6 +33,7 @@ const TourPage = () => {
         const filteredTours = data?.filter((tour) => tour.type === type);
         setTours(filteredTours || []);
         localStorage.setItem(`tours_${type}`, JSON.stringify(filteredTours)); // Lưu vào localStorage
+        setToursToShow(filteredTours || []); // Hiển thị tất cả tour ban đầu
       } catch (error) {
         console.error("Error fetching tours:", error);
       } finally {
@@ -42,6 +48,14 @@ const TourPage = () => {
 
   const renderTourCard = (tour) => {
     return <CardTour key={tour.id} tour={tour} />;
+  };
+
+  const handleEnterPress = () => {
+    // Khi nhấn Enter, lọc tour theo searchQuery và chỉ render các TourCard tương ứng
+    const filteredTours = tours.filter((tour) =>
+      tour.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setToursToShow(filteredTours);
   };
 
   return (
@@ -60,18 +74,24 @@ const TourPage = () => {
       </div>
 
       <div className="flex-grow">
+        <SearchFilter
+          setSearchQuery={setSearchQuery}
+          tours={tours} // Truyền danh sách các tour để tìm kiếm
+          setSelectedTour={setSelectedTour}
+          onEnterPress={handleEnterPress} // Truyền function vào để xử lý nhấn Enter
+        />
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 max-w-6xl mx-auto">
             <CardTourSkeleton />
             <CardTourSkeleton />
             <CardTourSkeleton />
           </div>
-        ) : tours.length > 0 ? (
+        ) : toursToShow.length > 0 ? (
           <div className="px-4 pb-8 max-w-6xl mx-auto">
             <Paginate
-              data={tours} // Dữ liệu tour
-              itemsPerPage={3} // Số lượng tour trên mỗi trang
-              renderItem={renderTourCard} // Render card cho mỗi item
+              data={toursToShow}
+              itemsPerPage={6}
+              renderItem={renderTourCard}
             />
           </div>
         ) : (
