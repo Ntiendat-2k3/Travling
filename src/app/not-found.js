@@ -22,6 +22,7 @@ const NotFound = () => {
             width={800}
             height={600}
             className="w-full h-auto rounded-md shadow-md"
+            priority
           />
         </div>
         <h2 className="text-2xl mb-6">Oops! Page not found.</h2>

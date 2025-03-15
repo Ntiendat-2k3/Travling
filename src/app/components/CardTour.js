@@ -10,14 +10,15 @@ import {
 } from "react-icons/fa";
 
 const CardTour = ({ tour }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [openModalType, setOpenModalType] = useState(null); // Quản lý loại modal nào đang mở
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openModal = (modalType) => {
+    if (openModalType !== modalType) {
+      setOpenModalType(modalType); // Mở modal mới và đóng modal cũ
+    }
+  };
 
-  const openBookingModal = () => setIsBookingModalOpen(true);
-  const closeBookingModal = () => setIsBookingModalOpen(false);
+  const closeModal = () => setOpenModalType(null); // Đóng tất cả modal
 
   return (
     <div className="max-w-sm h-[454px] rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-green-300 to-teal-400 transform transition-all duration-300 hover:shadow-xl cursor-pointer">
@@ -61,11 +62,11 @@ const CardTour = ({ tour }) => {
 
         {/* Nút đặt tour */}
         <div className="w-full flex items-center justify-between">
-          <button onClick={openModal}>
+          <button onClick={() => openModal("detail")}>
             <FaEye className="text-2xl text-violet-600" />
           </button>
           <button
-            onClick={openBookingModal}
+            onClick={() => openModal("booking")}
             className="w-[120px] py-2 rounded-md border border-transparent bg-green-500 text-white hover:border-green-500 hover:text-green-500 hover:bg-transparent transition duration-300"
           >
             Đặt ngay
@@ -73,12 +74,12 @@ const CardTour = ({ tour }) => {
         </div>
       </div>
 
-      {/* Hiển thị Modal khi isModalOpen là true */}
-      {isModalOpen && <TourDetailModal tour={tour} onClose={closeModal} />}
-
-      {/* Hiển thị Modal đặt tour khi isBookingModalOpen là true */}
-      {isBookingModalOpen && (
-        <TourBookingModal tour={tour} onClose={closeBookingModal} />
+      {/* Hiển thị Modal khi mở */}
+      {openModalType === "detail" && (
+        <TourDetailModal tour={tour} onClose={closeModal} />
+      )}
+      {openModalType === "booking" && (
+        <TourBookingModal tour={tour} onClose={closeModal} />
       )}
     </div>
   );

@@ -51,7 +51,7 @@ const SearchFilter = ({
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}
         placeholder="Tìm kiếm tour..."
-        className="w-full p-2 border border-gray-300 rounded-md"
+        className="w-full p-2 border border-gray-300 rounded-md text-dark2d"
       />
 
       {filteredTours.length > 0 && (

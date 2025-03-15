@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import Head from "next/head"; // Import Head từ next/head
+import Head from "next/head";
 import LoadingHamster from "../utils/loading/LoadingHamster";
 
 const CarRentalPage = lazy(() => import("./component/CarRentalPage"));

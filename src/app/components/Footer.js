@@ -74,6 +74,7 @@ const Footer = () => {
                 height: "auto", // Đảm bảo tỷ lệ của ảnh không bị méo
               }}
               priority
+              unoptimized
             />
             <p className="mt-4 text-sm">
               &copy; 2025 <span className="text-blue-500">Travling!</span>. All
