@@ -9,10 +9,11 @@ const SearchFilter = ({
 }) => {
   const [query, setQuery] = useState("");
   const [filteredTours, setFilteredTours] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
+  // Chỉ lọc tour khi người dùng nhấn Enter
   useEffect(() => {
-    if (query) {
-      // Lọc tour ngay khi người dùng nhập chữ
+    if (query && !isSearching) {
       setFilteredTours(
         tours.filter((tour) =>
           tour.name.toLowerCase().includes(query.toLowerCase())
@@ -21,12 +22,13 @@ const SearchFilter = ({
     } else {
       setFilteredTours([]);
     }
-  }, [query, tours]);
+  }, [query, tours, isSearching]);
 
   const handleSearchChange = (event) => {
     const value = event.target.value;
     setQuery(value);
     setSearchQuery(value); // Cập nhật từ khóa tìm kiếm
+    setIsSearching(false); // Khi thay đổi input, không thực hiện lọc ngay
   };
 
   const handleSelectTour = (tour) => {
@@ -39,7 +41,8 @@ const SearchFilter = ({
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       onEnterPress(); // Gọi hàm onEnterPress từ TourPage khi nhấn Enter
-      setFilteredTours([]); // Đóng thanh gợi ý sau khi nhấn Enter
+      setIsSearching(true); // Khi nhấn Enter, bắt đầu tìm kiếm và ẩn gợi ý
+      setFilteredTours([]); // Đóng thanh gợi ý
     }
   };
 
@@ -53,8 +56,8 @@ const SearchFilter = ({
         placeholder="Tìm kiếm tour..."
         className="w-full p-2 border border-gray-300 rounded-md text-dark2d"
       />
-
-      {filteredTours.length > 0 && (
+      {/* Chỉ hiển thị gợi ý khi không đang tìm kiếm */}
+      {!isSearching && filteredTours.length > 0 && (
         <div className="absolute w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg z-10">
           {filteredTours.map((tour) => (
             <div

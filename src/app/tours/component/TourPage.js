@@ -1,30 +1,38 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  lazy,
+  Suspense,
+} from "react";
 import { useParams } from "next/navigation";
 import { fetchTours } from "@/app/utils/fetchTours";
-import CardTour from "@/app/components/CardTour";
 import CardTourSkeleton from "@/app/utils/loading/CardTourSkeleton";
 import Paginate from "@/app/utils/Paginate";
 import SearchFilter from "./SearchFilter";
+import LazyLoadCardTour from "@/app/utils/loading/LazyLoadCardTour";
+
+const CardTour = lazy(() => import("@/app/components/CardTour"));
 
 const TourPage = () => {
   const { type } = useParams();
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState(""); // State để lưu từ khóa tìm kiếm
-  const [selectedTour, setSelectedTour] = useState(null); // State để lưu tour đã chọn
   const [toursToShow, setToursToShow] = useState([]); // State để lưu các TourCard sẽ hiển thị
 
+  // Fetch data từ API hoặc localStorage
   useEffect(() => {
     if (!type) return;
 
     const getTours = async () => {
-      // caching
       const cachedTours = localStorage.getItem(`tours_${type}`);
       if (cachedTours) {
-        setTours(JSON.parse(cachedTours)); // Sử dụng dữ liệu từ localStorage
+        setTours(JSON.parse(cachedTours));
+        setToursToShow(JSON.parse(cachedTours));
         setLoading(false);
-        setToursToShow(JSON.parse(cachedTours)); // Hiển thị tất cả tour ban đầu
         return;
       }
 
@@ -32,8 +40,8 @@ const TourPage = () => {
         const data = await fetchTours();
         const filteredTours = data?.filter((tour) => tour.type === type);
         setTours(filteredTours || []);
-        localStorage.setItem(`tours_${type}`, JSON.stringify(filteredTours)); // Lưu vào localStorage
-        setToursToShow(filteredTours || []); // Hiển thị tất cả tour ban đầu
+        localStorage.setItem(`tours_${type}`, JSON.stringify(filteredTours));
+        setToursToShow(filteredTours || []);
       } catch (error) {
         console.error("Error fetching tours:", error);
       } finally {
@@ -44,19 +52,35 @@ const TourPage = () => {
     getTours();
   }, [type]);
 
-  const pageTitle = type === "domestic" ? "Tour Trong Nước" : "Tour Nước Ngoài";
+  // Memoize page title to avoid unnecessary re-renders
+  const pageTitle = useMemo(
+    () => (type === "domestic" ? "Tour Trong Nước" : "Tour Nước Ngoài"),
+    [type]
+  );
 
-  const renderTourCard = (tour) => {
-    return <CardTour key={tour.id} tour={tour} />;
-  };
+  // Memoize rendering of tour card
+  const renderTourCard = useCallback((tour) => {
+    return (
+      // C1:
+      // <Suspense fallback={<CardTourSkeleton />}>
+      //   <CardTour key={tour.id} tour={tour} />
+      // </Suspense>
+      // C2:
+      <LazyLoadCardTour
+        key={tour.id}
+        tour={tour}
+        renderTourCard={(tour) => <CardTour tour={tour} />}
+      />
+    );
+  }, []);
 
-  const handleEnterPress = () => {
-    // Khi nhấn Enter, lọc tour theo searchQuery và chỉ render các TourCard tương ứng
+  // Function to handle search and filter tours (will be called after pressing Enter)
+  const handleSearch = useCallback(() => {
     const filteredTours = tours.filter((tour) =>
       tour.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setToursToShow(filteredTours);
-  };
+  }, [tours, searchQuery]);
 
   return (
     <>
@@ -76,10 +100,10 @@ const TourPage = () => {
       <div className="flex-grow">
         <SearchFilter
           setSearchQuery={setSearchQuery}
-          tours={tours} // Truyền danh sách các tour để tìm kiếm
-          setSelectedTour={setSelectedTour}
-          setToursToShow={setToursToShow} // Truyền setToursToShow vào
-          onEnterPress={handleEnterPress} // Truyền function vào để xử lý nhấn Enter
+          tours={tours}
+          setSelectedTour={() => {}}
+          onEnterPress={handleSearch} // Gọi hàm handleSearch sau khi nhấn Enter
+          setToursToShow={setToursToShow}
         />
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 max-w-6xl mx-auto">

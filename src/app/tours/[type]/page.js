@@ -1,9 +1,7 @@
 import TourPage from "../component/TourPage";
 
-// Update generateMetadata to be asynchronous
 export async function generateMetadata({ params }) {
-  // Await the params to ensure they are available
-  const { type } = await params; // Lấy tham số 'type' từ URL
+  const { type } = await params;
 
   const pageTitle = type === "domestic" ? "Tour Trong Nước" : "Tour Nước Ngoài";
   const pageDescription =
