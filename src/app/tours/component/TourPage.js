@@ -12,7 +12,7 @@ import { fetchTours } from "@/app/utils/fetchTours";
 import CardTourSkeleton from "@/app/utils/loading/CardTourSkeleton";
 import Paginate from "@/app/utils/Paginate";
 import SearchFilter from "./SearchFilter";
-import LazyLoadCardTour from "@/app/utils/loading/LazyLoadCardTour";
+import LoadingHamster from "@/app/utils/loading/LoadingHamster";
 
 const CardTour = lazy(() => import("@/app/components/CardTour"));
 
@@ -23,58 +23,50 @@ const TourPage = () => {
   const [searchQuery, setSearchQuery] = useState(""); // State để lưu từ khóa tìm kiếm
   const [toursToShow, setToursToShow] = useState([]); // State để lưu các TourCard sẽ hiển thị
 
-  // Fetch data từ API hoặc localStorage
-  useEffect(() => {
-    if (!type) return;
-
-    const getTours = async () => {
-      const cachedTours = localStorage.getItem(`tours_${type}`);
-      if (cachedTours) {
-        setTours(JSON.parse(cachedTours));
-        setToursToShow(JSON.parse(cachedTours));
-        setLoading(false);
-        return;
-      }
-
-      try {
-        const data = await fetchTours();
-        const filteredTours = data?.filter((tour) => tour.type === type);
-        setTours(filteredTours || []);
-        localStorage.setItem(`tours_${type}`, JSON.stringify(filteredTours));
-        setToursToShow(filteredTours || []);
-      } catch (error) {
-        console.error("Error fetching tours:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getTours();
+  const pageTitle = useMemo(() => {
+    return type === "domestic" ? "Tour Trong Nước" : "Tour Nước Ngoài";
   }, [type]);
 
-  // Memoize page title to avoid unnecessary re-renders
-  const pageTitle = useMemo(
-    () => (type === "domestic" ? "Tour Trong Nước" : "Tour Nước Ngoài"),
-    [type]
-  );
+  const fetchTourData = useCallback(async (tourType) => {
+    setLoading(true);
 
-  // Memoize rendering of tour card
+    const cachedTours = localStorage.getItem(`tours_${tourType}`);
+    if (cachedTours) {
+      setTours(JSON.parse(cachedTours));
+      setToursToShow(JSON.parse(cachedTours));
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const data = await fetchTours();
+      const filteredTours = data?.filter((tour) => tour.type === tourType);
+      setTours(filteredTours || []);
+      setToursToShow(filteredTours || []);
+      localStorage.setItem(`tours_${tourType}`, JSON.stringify(filteredTours));
+    } catch (error) {
+      console.error("Error fetching tours:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!type) return;
+    fetchTourData(type);
+  }, [type, fetchTourData]);
+
   const renderTourCard = useCallback((tour) => {
     return (
-      // C1:
-      // <Suspense fallback={<CardTourSkeleton />}>
-      //   <CardTour key={tour.id} tour={tour} />
-      // </Suspense>
-      // C2:
-      <LazyLoadCardTour
-        key={tour.id}
-        tour={tour}
-        renderTourCard={(tour) => <CardTour tour={tour} />}
-      />
+      <CardTour key={tour.id} tour={tour} />
+      // <LazyLoadCardTour
+      //   key={tour.id}
+      //   tour={tour}
+      //   renderTourCard={(tour) => <CardTour tour={tour} />}
+      // />
     );
   }, []);
 
-  // Function to handle search and filter tours (will be called after pressing Enter)
   const handleSearch = useCallback(() => {
     const filteredTours = tours.filter((tour) =>
       tour.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -120,7 +112,10 @@ const TourPage = () => {
             />
           </div>
         ) : (
-          <p className="text-center mt-6">Hiện không có tour phù hợp</p>
+          <div className="w-full mx-auto flex flex-col items-center gap-3 my-6">
+            <p className="">Hiện không có tour phù hợp😳.</p>
+            <LoadingHamster />
+          </div>
         )}
       </div>
     </>

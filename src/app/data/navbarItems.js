@@ -17,9 +17,9 @@ export const navbarItems = [
     path: "/tours/domestic",
     icon: <FaGlobe className="w-5 h-5 mr-2" />,
     dropdown: [
-      { name: "Tour Hà Nội", path: "/tour-ha-noi" },
-      { name: "Tour Sài Gòn", path: "/tour-sai-gon" },
-      { name: "Tour Đà Nẵng", path: "/tour-da-nang" },
+      { name: "Tour Hà Nội", path: "/tours/domestic" },
+      { name: "Tour Sài Gòn", path: "/tours/domestic" },
+      { name: "Tour Đà Nẵng", path: "/tours/domestic" },
     ],
   },
   {
